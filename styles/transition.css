@@ -1,0 +1,21 @@
+.transition {
+  position: relative;
+  margin-top: -50px;
+}
+.transition-background {
+  width: 100%;
+}
+.transition-title {
+  position: absolute;
+  top: 30%;
+
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(180px, 45vw ,650px);
+}
+
+@media (max-width: 500px) {
+  .transition {
+    margin-top: -20px;
+  }
+}

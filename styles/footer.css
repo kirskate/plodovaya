@@ -1,0 +1,26 @@
+.footer-grass {
+  width: 100%;
+}
+
+.footer-desc {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-desc-1 {
+  font-family: 'Alana_Pro_RUS', sans-serif;
+  font-size: clamp(16px, 3vw, 42px);
+  line-height: 1.3;
+}
+.footer-desc-2 {
+  font-family: 'Alana_Pro_RUS', sans-serif;
+  font-size: clamp(16px, 3vw, 42px);
+  line-height: 1.3;
+}
+
+
+.footer-logo {
+  margin: 0 6vw;
+  width: clamp(80px, 20vw, 200px);
+}
+

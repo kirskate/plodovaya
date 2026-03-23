@@ -1,0 +1,233 @@
+.blender-wrapper {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.blender {
+  position: relative;
+  /* overflow: hidden; */
+  /* padding-bottom: 150px; */
+}
+.blender-background {
+  width: 100%;
+}
+.blender-img {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-120%);
+  width: clamp(70px, 22vw, 380px);
+  z-index: 2;
+}
+.plate-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(40%);
+  width: clamp(60px, 22vw, 360px);
+  z-index: 1;
+}
+.plate {
+  width: 100%;
+  display: block;
+  position: relative;
+  vertical-align: top;
+}
+.plate-fruits {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  width: 68%;
+  height: 58%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+  pointer-events: none;
+}
+.plate-fruits--empty .plate-fruit {
+  opacity: 0;
+  pointer-events: none;
+}
+.plate-fruit {
+  width: 44%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  transition: transform 0.15s ease;
+}
+.plate-fruit:hover:not(.dropped):not(.is-dragging) {
+  transform: scale(1.06);
+}
+.plate-fruit.is-dragging {
+  cursor: grabbing;
+  z-index: 10000;
+  transition: none;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
+.plate-fruit.dropped {
+  visibility: hidden;
+  pointer-events: none;
+}
+.flower-1 {
+  position: absolute;
+  top: 40%;
+  left: -5vw;
+  width: clamp(50px, 14vw, 260px);
+}
+.flower-2 {
+  position: absolute;
+  top: 52%;
+  right: -5vw;
+  width: clamp(50px, 14vw, 260px);
+  transform: rotate(190deg);
+}
+
+.blender-stars {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 10px 0;
+  gap: 20px;
+  position: relative;
+}
+.star {
+  position: relative;
+  cursor: pointer;
+}
+
+.star img {
+  width: clamp(50px, 8vw ,120px);
+  height: clamp(50px, 8vw ,120px);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.star-red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* менять при нажатии */
+  transition: opacity 0.2s ease;
+}
+.star.active .star-red {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ff4d4d;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100;
+  animation: explode 0.8s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(0);
+    opacity: 0;
+  }
+}
+.thanks-message {
+  position: absolute;
+  font-family: 'Alana_Pro_RUS', sans-serif;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3E2518;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 21px;
+  font-size: 21px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.thanks-message.show {
+  top: -60px;
+  opacity: 1;
+}
+
+.menu-catalog {
+  perspective: 1200px;
+}
+
+.menu-catalog-card {
+  width: clamp(72px, 20vw, 145px);
+  aspect-ratio: 140 / 190;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-catalog-card:focus-visible {
+  outline: 3px solid #3e2518;
+  outline-offset: 4px;
+}
+
+.menu-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.menu-catalog-card.is-flipped .menu-card-inner {
+  transform: rotateY(180deg);
+}
+
+.menu-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-card-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.menu-card-face--fruit {
+  transform: rotateY(180deg);
+}
+
+.menu-catalog--locked {
+  pointer-events: none;
+}
+
+.menu-catalog--locked .menu-catalog-card {
+  cursor: default;
+}
